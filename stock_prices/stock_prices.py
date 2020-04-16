@@ -3,7 +3,12 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+  profit = prices[1] - prices[0]
+  for i in range(len(prices)): # big O of n
+    for j in range(i+1, len(prices)): # O of n/2 on overage
+      diff = prices[j]-prices[i]
+      profit = diff if diff > profit else profit
+  return profit # O of n^2 in the end
 
 
 if __name__ == '__main__':
